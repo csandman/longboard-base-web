@@ -1,0 +1,137 @@
+/* =============================  Home Page  ============================ */
+#home .body {
+
+}
+
+#home div.card {
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 2px;
+  display: inline-block;
+  min-height: 250px;
+  width: 90%;
+  margin: 30px 0px 30px 20px;
+  position: relative;
+}
+
+#home div.card h3 {
+  width: 100%;
+  background-color: #218ACC;
+  padding: 0px;
+  margin: 0px;
+  font-size: 2em;
+  line-height: 2em;
+  color: white;
+  font-family: sans-serif;
+}
+
+#home div.card p {
+  margin: 0px;
+  padding: 25px;
+  line-height: 1.5em;
+}
+
+#home div.card span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#home div.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#home .background {
+  margin: 5.5rem auto 0 auto;
+  width: 90%;
+  max-width: 1024px;
+}
+
+#home div.column1 {
+  float: left;
+}
+
+#home div.column2 {
+  float: right;
+}
+
+#home div.column1, #home div.column2 {
+  width: 47%;
+  max-width: 500px;
+}
+
+#home div.column1 h3, #home div.column2 h3 {
+  text-align: center;
+}
+
+@media only screen and (max-width: 650px) {
+  #home div.column1, #home div.column2 {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+#home .above-the-fold {
+  width: 100%;
+  height: 42em;
+  background-color: #218ACC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#home .atf-center {}
+
+#home .atf-center h1 {
+  font-size: 6rem;
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+}
+
+#home .atf-center article {
+  font-size: 2rem;
+  color: #fff;
+  font-family: Poppins, sans-serif;
+  font-weight: 600;
+}
+
+#home .deck-database {
+  height: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #218ACC;
+  font-family: Poppins, 'sans-serif';
+}
+
+#home .deck-database .left, #home .deck-database .right {
+  display: flex;
+  align-items: center;
+  padding: 5rem;
+}
+
+#home .deck-database .left {
+  flex-grow: 65%;
+  justify-content: center;
+}
+
+#home .deck-database .right {
+  justify-content: left;
+  flex-basis: 35%;
+  padding-left: 0;
+  padding-right: 8rem;
+}
+
+#home .text-content h2 {
+  font-size: 4rem;
+}
+
+#home .text-content p {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+}
