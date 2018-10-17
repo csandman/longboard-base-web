@@ -2,7 +2,7 @@
   "root": "build/",
   "proxies": {
     "/api/": {
-      "origin": "https://longboard-base-server.herokuapp.com/api"
+      "origin": "${API_URL}/api"
     }
   }
 }
