@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
-import DeckThumbnail from '../DeckThumbnail/DeckThumbnail';
-import { connect } from 'react-redux';
-import { getDecks } from '../../actions/deckActions';
-import PropTypes from 'prop-types';
-import './Home.css';
+import React, { Component } from "react";
+import DeckThumbnail from "../DeckThumbnail/DeckThumbnail";
+import { connect } from "react-redux";
+import { getDecks } from "../../actions/deckActions";
+import PropTypes from "prop-types";
+import "./Home.scss";
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = { deckIndex: 0, currentDeck: {}, showDeck: true };
+    this.state = {
+      deckIndex: 0,
+      currentDeck: {},
+      showDeck: false
+    };
     this.changeDeck = this.changeDeck.bind(this);
     this.showDeck = this.showDeck.bind(this);
     this.hideDeck = this.hideDeck.bind(this);
@@ -16,13 +20,20 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.getDecks();
+  }
 
-    this.changeDeck();
-    setInterval(this.changeDeck, 4000);
+  componentDidUpdate(prevProps) {
+    if (
+      prevProps.decksLoading === true &&
+      this.props.decksLoading === false
+    ) {
+      this.changeDeck();
+      setInterval(this.changeDeck, 4000);
+    }
   }
 
   changeDeck() {
-    console.log('changeDeck');
+    console.log("changeDeck");
     if (this.props.decks.length > 0) {
       const that = this;
       this.hideDeck();
@@ -72,7 +83,7 @@ class Home extends Component {
               </article>
             </section>
             <section className="right">
-              {this.state.currentDeck.hasOwnProperty('deckName') && (
+              {this.state.currentDeck.hasOwnProperty("deckName") && (
                 <DeckThumbnail
                   deck={this.state.currentDeck}
                   images={this.props.images}
@@ -81,55 +92,6 @@ class Home extends Component {
               )}
             </section>
           </article>
-          <div className="columnHolder borderBottom">
-            <div className="column1">
-              <div className="card">
-                <a href="decks">
-                  <span />
-                </a>
-                <h3>Deck Database</h3>
-                <p>
-                  A database of longboard decks with descriptions, deck
-                  specifications, websites to buy from, and product videos.
-                </p>
-              </div>
-              <div className="card">
-                <a href="newBoards">
-                  <span />
-                </a>
-                <h3>New Boards</h3>
-                <p>
-                  A collection decks added by users that have yet been added to
-                  the main database
-                </p>
-              </div>
-            </div>
-            <div className="column2">
-              <div className="card">
-                <a href="form">
-                  <span />
-                </a>
-                <h3>Add a Deck</h3>
-                <p>
-                  Submit details about a specific deck that you would like to be
-                  added to the Deck Database.
-                </p>
-              </div>
-              <div className="card">
-                <a href="guides">
-                  <span />
-                </a>
-                <h3>Guides</h3>
-                <p>
-                  A variety of guides on how to set up and maintain your
-                  longboard and how to do a variety of tricks. Guides are in
-                  both text and video form.
-                </p>
-              </div>
-            </div>
-          </div>
-          <h3>Featured Decks:</h3>
-          <div className="decks" />
         </section>
       </div>
     );
@@ -138,11 +100,17 @@ class Home extends Component {
 
 Home.propTypes = {
   getDecks: PropTypes.func.isRequired,
-  decks: PropTypes.array.isRequired
+  decks: PropTypes.array.isRequired,
+  decksLoading: PropTypes.bool.isRequired
+};
+
+Home.defaultProps = {
+  decksLoading: false
 };
 
 const mapStateToProps = state => ({
-  decks: state.decksObj.decks
+  decks: state.decksObj.decks,
+  decksLoading: state.decksObj.loading
 });
 
 export default connect(

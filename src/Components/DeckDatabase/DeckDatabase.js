@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './DeckDatabase.css';
+import './DeckDatabase.scss';
 
 export default class DeckDatabase extends Component {
 
