@@ -1,0 +1,54 @@
+$primary-color: #218ACC;
+
+* {
+  font-size: 16px;
+  font-family: "roboto", sans-serif;
+}
+
+html,
+body {
+  margin: 0px;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+h5 {
+  font-size: 0.6em;
+}
+
+h6 {
+  font-size: 0.5em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $primary-color;
+  font-weight: bold;
+  font-family: Poppins, sans-serif;
+}
+
+a:link {
+  color: $primary-color;
+}
+
+a:visited {
+  color: #fff;
+}

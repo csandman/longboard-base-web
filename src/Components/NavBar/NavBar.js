@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch, FaBars } from 'react-icons/fa';
-import './NavBar.css'
+import './NavBar.scss'
 
 export default class NavBar extends Component {
 

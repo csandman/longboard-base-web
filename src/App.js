@@ -5,7 +5,7 @@ import NavBar from './Components/NavBar/NavBar';
 import Home from './Components/Home/Home';
 import DeckDatabase from './Components/DeckDatabase/DeckDatabase';
 import store from './store';
-import './App.css';
+import './App.scss';
 
 // hacky way to import all image paths
 // function importAll(r) {
@@ -35,7 +35,3 @@ class App extends Component {
 }
 
 export default App;
-
-// <header className="App-header">
-//   {this.state.decks.length && <DeckThumbnail images={images} deck={this.state.decks[0]} />}
-// </header>
