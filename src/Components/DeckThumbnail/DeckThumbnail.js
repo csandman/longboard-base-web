@@ -3,7 +3,11 @@ import { Link } from "react-router-dom";
 import "./DeckThumbnail.scss";
 
 const DeckThumbnail = props => {
-  let brand = props.deck.brand.replace(/\s/g, "").toLowerCase();
+  let brand = ""
+  if (props.deck.brand) {
+    brand = props.deck.brand.replace(/\s/g, "").toLowerCase();
+  }
+  
   let imgSrc = `https://dqsa52xlu6vay.cloudfront.net/images/decks/${brand}/thumbs/${
     props.deck.fileName
   }Thumb.png`;

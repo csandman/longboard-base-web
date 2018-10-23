@@ -25,18 +25,25 @@ class Home extends Component {
   componentDidUpdate(prevProps) {
     if (
       prevProps.decksLoading === true &&
-      this.props.decksLoading === false
+      this.props.decksLoading === false &&
+      this.props.decks.length > 0
     ) {
       this.changeDeck();
-      setInterval(this.changeDeck, 4000);
+      this.setState({
+        interval: setInterval(this.changeDeck, 4000)
+      });
     }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.state.interval);
   }
 
   changeDeck() {
     console.log("changeDeck");
     if (this.props.decks.length > 0) {
-      const that = this;
       this.hideDeck();
+      const that = this;
       setTimeout(() => {
         let deckIndex = that.state.deckIndex;
         if (that.state.deckIndex + 2 === that.props.decks.length) {
@@ -83,12 +90,10 @@ class Home extends Component {
               </article>
             </section>
             <section className="right">
-              {this.state.currentDeck.hasOwnProperty("deckName") && (
-                <DeckThumbnail
-                  deck={this.state.currentDeck}
-                  show={this.state.showDeck}
-                />
-              )}
+              <DeckThumbnail
+                deck={this.state.currentDeck}
+                show={this.state.showDeck}
+              />
             </section>
           </article>
         </section>

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-import { Redirect } from "react-router";
 import "./DeckDatabase.scss";
 import DeckList from "../DeckList/DeckList";
 import DeckPage from "../DeckPage/DeckPage";
