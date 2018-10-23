@@ -26,7 +26,7 @@ class App extends Component {
               return <Home {...props} />
             }} />
 
-            <Route path='/deck-database' component={DeckDatabase} />
+            <Route path='/decks' component={DeckDatabase} />
           </Switch>
         </div>
       </Provider>

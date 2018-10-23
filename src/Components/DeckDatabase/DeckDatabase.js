@@ -1,11 +1,25 @@
-import React, { Component } from 'react';
-import './DeckDatabase.scss';
+import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import { Redirect } from "react-router";
+import "./DeckDatabase.scss";
+import DeckList from "../DeckList/DeckList";
+import DeckPage from "../DeckPage/DeckPage";
 
-export default class DeckDatabase extends Component {
+class DeckDatabase extends Component {
 
   render() {
     return (
-      <h1>Deck Database Deck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck DatabaseDeck Database</h1>
+      <div id="deck-database">
+        <Switch>
+          <Route exact path='/decks' render={() => (
+            <Redirect to="/decks/all" />
+          )} />
+          <Route exact path="/decks/:brand" component={DeckList} />
+          <Route exact path="/decks/:brand/:deck" component={DeckPage} />
+        </Switch>
+      </div>
     );
   }
 }
+
+export default DeckDatabase;

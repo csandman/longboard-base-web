@@ -1,14 +1,16 @@
-$primary-color: #218acc;
+$primary-color: #218ACC ;
 
-#nav-bar {
+@mixin flex() {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-content: center;
   flex-wrap: nowrap;
+}
+
+#nav-bar {
+  @include flex();
   justify-content: space-around;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-sizing: border-box;
   font-weight: 500;
   background-color: $primary-color;
   color: #fff;
@@ -40,11 +42,7 @@ $primary-color: #218acc;
   }
 
   .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: nowrap;
+    @include flex();
     flex: 1;
   }
 
@@ -55,35 +53,22 @@ $primary-color: #218acc;
   }
 
   li {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: nowrap;
+    @include flex();
     text-decoration: none;
-    text-align: center;
     flex: 1 0 auto;
-    box-sizing: border-box;
-    white-space: nowrap;
   }
 
   .menu-item {
-    display: flex;
+    @include flex();
     flex-direction: column;
-    justify-content: space-around;
     padding: 1rem 1rem calc(1rem - 3px) 1rem;
     text-decoration: none;
     transition: 0.15s ease-in-out all;
-    box-sizing: border-box;
   }
 
   .left,
   .right {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-content: center;
-    flex-wrap: nowrap;
+    @include flex();
   }
 
   .left {
@@ -115,7 +100,6 @@ $primary-color: #218acc;
     color: #fff;
     outline: none;
     margin: 0;
-    box-sizing: border-box;
     border-radius: 2px;
   }
 
@@ -154,7 +138,6 @@ $primary-color: #218acc;
 
     li {
       text-align: left;
-      box-sizing: border-box;
       border: 1px solid rgba(0, 0, 0, 0);
       border-radius: 3px;
       padding: 0;
@@ -189,8 +172,9 @@ $primary-color: #218acc;
       align-items: center;
       width: 3.3rem;
       cursor: pointer;
-      box-sizing: border-box;
       transition: 0.15s ease-in-out all;
+      border-top: 3px solid rgba(0, 0, 0, 0);
+      border-bottom: 3px solid rgba(0, 0, 0, 0);
 
       &:hover {
         border-top: 3px solid rgba(0, 0, 0, 0);

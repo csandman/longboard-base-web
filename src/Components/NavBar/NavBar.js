@@ -20,15 +20,15 @@ export default class NavBar extends Component {
               <ul id="dropdown"></ul>
             </li>
             <li>
-              <Link to="searchForm" className="link menu-item">Advanced Search</Link>
+              <Link to="search-decks" className="link menu-item">Advanced Search</Link>
             </li>
           </ul>
           <ul className="right">
             <li>
-              <Link to="/deck-database" className="link menu-item">Deck Database</Link>
+              <Link to="/decks" className="link menu-item">Deck Database</Link>
             </li>
             <li>
-              <Link to="/addForm" className="link menu-item">Add a Board</Link>
+              <Link to="/add-deck" className="link menu-item">Add a Board</Link>
             </li>
             <li>
               <Link to="/resources" className="link menu-item">Links</Link>

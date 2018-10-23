@@ -70,7 +70,7 @@ class Home extends Component {
             <article>The catolog of every longboard made</article>
           </section>
         </div>
-        <section className="body">
+        <section className="body-section">
           <article className="deck-database">
             <section className="left">
               <article className="text-content">
@@ -86,7 +86,6 @@ class Home extends Component {
               {this.state.currentDeck.hasOwnProperty("deckName") && (
                 <DeckThumbnail
                   deck={this.state.currentDeck}
-                  images={this.props.images}
                   show={this.state.showDeck}
                 />
               )}
@@ -117,3 +116,5 @@ export default connect(
   mapStateToProps,
   { getDecks }
 )(Home);
+
+// TODO end interval on unmount

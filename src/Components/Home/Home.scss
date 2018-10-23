@@ -34,6 +34,9 @@ $primary-color: #218ACC;
     align-items: center;
     color: $primary-color;
     font-family: Poppins, "sans-serif";
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
 
     .left,
     .right {
@@ -51,7 +54,6 @@ $primary-color: #218ACC;
       justify-content: left;
       flex-basis: 35%;
       padding-left: 0;
-      padding-right: 8rem;
     }
   }
 

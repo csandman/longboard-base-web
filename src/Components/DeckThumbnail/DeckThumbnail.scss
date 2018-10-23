@@ -1,67 +1,50 @@
-$primary-color: #218ACC;
-$secondary-color: #A8CCFF;
-$tertiary-color: #D9E6FF;
+$primary-color: #218acc;
+$secondary-color: #a8ccff;
+$tertiary-color: #d9e6ff;
 
-.thumbnail {
-  display: block;
-  float: left;
-  margin: 10px;
-  border: 2px solid $primary-color;
-  height: 520px;
-  width: 156px;
-  border-radius: 8px;
-  background-color: $secondary-color;
-  overflow: hidden;
-  text-align: center;
-  position: relative;
-  box-sizing: border-box;
-  -webkit-transition: 0.7s;
-  -moz-transition: 0.7s;
-  -o-transition: 0.7s;
-  transition: 0.7s;
+@mixin transition($duration) {
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -o-transition: $duration;
+  transition: $duration;
+}
+
+.thumbnail-link {
   opacity: 0;
   visibility: hidden;
-  cursor: pointer;
+  @include transition(0.7s);
 
   &.show {
     opacity: 1;
     visibility: visible;
   }
+}
 
-  Link {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    text-decoration: none;
-    z-index: 10;
-    background-color: white;
-    opacity: 0;
-  }
-
-  img {
-    display: inline;
-    margin: 5px;
-    padding: 8px;
-  }
-
-  div {
-    height: 440px;
-    vertical-align: central;
-  }
+.thumbnail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $primary-color;
+  height: 32.5rem;
+  width: 10rem;
+  border-radius: 8px;
+  background-color: $secondary-color;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  @include transition(background-color 0.4s);
 
   h3 {
     font-weight: bold;
     color: white;
-    display: block;
     font-size: 1rem;
-    padding: 3px 0px;
-    border-top: 1px $primary-color solid;
-    border-bottom: 1px $primary-color solid;
+    padding: 3px;
     background-color: $primary-color;
+    position: absolute;
+    top: 440px;
+    left: 0;
     width: 100%;
-    position: relative;
   }
 
   &:hover {
