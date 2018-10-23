@@ -4,5 +4,8 @@
     "/api/": {
       "origin": "${API_URL}/api"
     }
+  },
+  "routes": {
+    "/**": "index.html"
   }
 }
