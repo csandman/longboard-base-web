@@ -8,17 +8,13 @@ import DeckPage from "../DeckPage/DeckPage";
 class DeckDatabase extends Component {
 
   render() {
-    return (
-      <div id="deck-database">
+    return <div id="deck-database">
         <Switch>
-          <Route exact path='/decks' render={() => (
-            <Redirect to="/decks/all" />
-          )} />
+          <Route exact path="/decks" component={DeckList} />
           <Route exact path="/decks/:brand" component={DeckList} />
           <Route exact path="/decks/:brand/:deck" component={DeckPage} />
         </Switch>
-      </div>
-    );
+      </div>;
   }
 }
 
