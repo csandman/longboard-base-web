@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import JsxParser from "react-jsx-parser";
 import { getDeck } from "../../actions/deckActions";
 import "./DeckPage.scss";
 
