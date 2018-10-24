@@ -9,7 +9,6 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      deckIndex: 0,
       currentDeck: {},
       showDeck: false
     };
@@ -21,8 +20,6 @@ class Home extends Component {
   componentDidMount() {
     this.props.getDecks();
   }
-
-  // change
 
   componentDidUpdate(prevProps) {
     if (
@@ -47,15 +44,9 @@ class Home extends Component {
       this.hideDeck();
       const that = this;
       setTimeout(() => {
-        let deckIndex = that.state.deckIndex;
-        if (that.state.deckIndex + 2 === that.props.decks.length) {
-          deckIndex = 0;
-        } else {
-          deckIndex += 1;
-        }
+        const deckIndex = Math.floor(Math.random() * that.props.decks.length);
         that.setState({
-          deckIndex: deckIndex,
-          currentDeck: that.props.decks[that.state.deckIndex]
+          currentDeck: that.props.decks[deckIndex]
         });
         that.showDeck();
       }, 700);
@@ -123,5 +114,3 @@ export default connect(
   mapStateToProps,
   { getDecks }
 )(Home);
-
-// TODO end interval on unmount

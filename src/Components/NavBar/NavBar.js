@@ -20,7 +20,7 @@ export default class NavBar extends Component {
               <ul id="dropdown"></ul>
             </li>
             <li>
-              <Link to="search-decks" className="link menu-item">Advanced Search</Link>
+              <Link to="/search" className="link menu-item">Advanced Search</Link>
             </li>
           </ul>
           <ul className="right">
@@ -29,9 +29,6 @@ export default class NavBar extends Component {
             </li>
             <li>
               <Link to="/add-deck" className="link menu-item">Add a Board</Link>
-            </li>
-            <li>
-              <Link to="/resources" className="link menu-item">Links</Link>
             </li>
             <li>
               <Link to="/guides" className="link menu-item">Guides</Link>

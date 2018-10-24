@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 import "./DeckThumbnail.scss";
 
 const DeckThumbnail = props => {
-  let brand = ""
+  let brand = "";
+  let imgSrc = "";
+  let pageLink = "";
   if (props.deck.brand) {
     brand = props.deck.brand.replace(/\s/g, "").toLowerCase();
+    imgSrc = `${process.env.REACT_APP_CLOUDFLARE_URL}/images/decks/${brand}/thumbs/${
+      props.deck.fileName
+    }Thumb.png`;
+    pageLink = "/decks/" + brand + "/" + props.deck.fileName;
   }
-  
-  let imgSrc = `https://dqsa52xlu6vay.cloudfront.net/images/decks/${brand}/thumbs/${
-    props.deck.fileName
-  }Thumb.png`;
-  let pageLink = "/decks/" + brand + "/" + props.deck.fileName;
 
   const componentClasses = ["thumbnail-link"];
   if (props.show) {
