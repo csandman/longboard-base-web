@@ -1,6 +1,8 @@
-$primary-color: #218ACC;
+$primary-color: #218acc;
 
 #home {
+  width: 100%;
+
   .above-the-fold {
     width: 100%;
     height: 42em;
@@ -10,6 +12,7 @@ $primary-color: #218ACC;
     justify-content: center;
 
     .atf-center {
+
       h1 {
         font-size: 6rem;
         color: white;
@@ -65,6 +68,42 @@ $primary-color: #218ACC;
     p {
       font-size: 1.8rem;
       line-height: 2.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #home {
+    .above-the-fold {
+      height: 30rem;
+
+      .atf-center {
+        h1 {
+          font-size: 4rem;
+        }
+
+        article {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  #home {
+    .above-the-fold {
+      height: 25rem;
+
+      .atf-center {
+        h1 {
+          font-size: 2rem;
+        }
+
+        article {
+          font-size: 1rem;
+        }
+      }
     }
   }
 }
