@@ -3,7 +3,8 @@ import {
   ADD_DECK,
   DELETE_DECK,
   DECKS_LOADING,
-  GET_DECK
+  GET_DECK,
+  SEARCH_DECKS
 } from "../actions/types";
 
 const initialState = {
@@ -15,6 +16,13 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case GET_DECKS:
+      console.log(action.payload);
+      return {
+        ...state,
+        decks: action.payload,
+        loading: false
+      };
+    case SEARCH_DECKS:
       console.log(action.payload);
       return {
         ...state,

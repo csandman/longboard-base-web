@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import NavBar from './Components/NavBar/NavBar';
 import Home from './Components/Home/Home';
 import DeckDatabase from './Components/DeckDatabase/DeckDatabase';
+import DeckSearch from './Components/DeckSearch/DeckSearch';
 import store from './store';
 import './App.scss';
 
@@ -22,11 +23,9 @@ class App extends Component {
         <div className="App">
           <NavBar />
           <Switch>
-            <Route exact path='/' render={(props) => {
-              return <Home {...props} />
-            }} />
-
+            <Route exact path='/' component={Home}/>
             <Route path='/decks' component={DeckDatabase} />
+            <Route path='/search' component={DeckSearch} />
           </Switch>
         </div>
       </Provider>

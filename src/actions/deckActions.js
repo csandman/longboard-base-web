@@ -1,5 +1,22 @@
 import axios from "axios";
-import { GET_DECKS, ADD_DECK, DELETE_DECK, DECKS_LOADING, GET_DECK } from "./types";
+import {
+  GET_DECKS,
+  ADD_DECK,
+  DELETE_DECK,
+  DECKS_LOADING,
+  GET_DECK,
+  SEARCH_DECKS
+} from "./types";
+
+export const searchDecks = searchTerm => dispatch => {
+  dispatch(setDecksLoading());
+  axios.get(`/api/decks/search/${searchTerm}`).then(res =>
+    dispatch({
+      type: SEARCH_DECKS,
+      payload: res.data
+    })
+  );
+};
 
 export const getDecks = queryStr => dispatch => {
   dispatch(setDecksLoading());
