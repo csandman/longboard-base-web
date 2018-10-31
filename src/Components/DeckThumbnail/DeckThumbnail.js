@@ -14,13 +14,8 @@ const DeckThumbnail = props => {
     pageLink = "/decks/" + brand + "/" + props.deck.fileName;
   }
 
-  const componentClasses = ["thumbnail-link"];
-  if (props.show) {
-    componentClasses.push("show");
-  }
-
   return (
-    <Link className={componentClasses.join(" ")} to={pageLink}>
+    <Link className="thumbnail-link" to={pageLink}>
       <div className="thumbnail">
         <img src={imgSrc} alt="" />
         <h3>{props.deck.deckName}</h3>

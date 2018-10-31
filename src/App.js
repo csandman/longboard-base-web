@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import { Provider } from 'react-redux';
-import NavBar from './Components/NavBar/NavBar';
+import NavBarContainer from './Components/NavBar/NavBarContainer';
 import Home from './Components/Home/Home';
 import DeckDatabase from './Components/DeckDatabase/DeckDatabase';
 import DeckSearch from './Components/DeckSearch/DeckSearch';
@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className="App">
-          <NavBar />
+          <NavBarContainer />
           <Switch>
             <Route exact path='/' component={Home}/>
             <Route path='/decks' component={DeckDatabase} />

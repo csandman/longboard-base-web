@@ -9,17 +9,6 @@ $tertiary-color: #d9e6ff;
   transition: $duration;
 }
 
-.thumbnail-link {
-  opacity: 0;
-  visibility: hidden;
-  @include transition(0.7s);
-
-  &.show {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
 .thumbnail {
   display: flex;
   flex-direction: column;
@@ -42,7 +31,8 @@ $tertiary-color: #d9e6ff;
     padding: 3px;
     background-color: $primary-color;
     position: absolute;
-    top: 27.5rem;
+    bottom: 2rem;
+    margin: 0;
     left: 0;
     width: 100%;
     text-align: center;
@@ -51,4 +41,41 @@ $tertiary-color: #d9e6ff;
   &:hover {
     background-color: $tertiary-color;
   }
+}
+
+@media screen and (max-width: 1024px) {
+  .thumbnail {
+    height: 24.4rem;
+    width: 7.5rem;
+    padding-bottom: 2rem;
+
+    img {
+      zoom: 75%;
+    }
+
+    h3 {
+      bottom: 0;
+      font-size: 0.8rem;
+    }
+  }
+  
+
+}
+
+@media screen and (max-width: 600px) {
+.thumbnail {
+    height: 16.3rem;
+    width: 5rem;
+    padding-bottom: 1rem;
+
+    img {
+      zoom: 50%;
+    }
+
+    h3 {
+      bottom: 0;
+      font-size: 0.6rem;
+    }
+  }
+
 }

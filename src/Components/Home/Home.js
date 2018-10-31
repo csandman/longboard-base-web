@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { getDecks } from "../../actions/deckActions";
 import PropTypes from "prop-types";
 import "./Home.scss";
+const classNames = require("classnames");
 
 class Home extends Component {
   constructor(props) {
@@ -62,8 +63,12 @@ class Home extends Component {
   }
 
   render() {
-    return (
-      <div id="home">
+    const deckClass = classNames({
+      deck: true,
+      show: this.state.showDeck
+    });
+
+    return <div id="home">
         <div className="above-the-fold">
           <section className="atf-center">
             <h1>Longboard Base</h1>
@@ -72,26 +77,18 @@ class Home extends Component {
         </div>
         <section className="body-section">
           <article className="deck-database">
-            <section className="left">
-              <article className="text-content">
-                <h2>Deck Database</h2>
-                <p>
-                  An exhaustive collection of longboard decks made by companies
-                  all around the world. Each deck is presented with a variety of
-                  information from deck specs to videos.
-                </p>
-              </article>
-            </section>
-            <section className="right">
-              <DeckThumbnail
-                deck={this.state.currentDeck}
-                show={this.state.showDeck}
-              />
-            </section>
+            <h2>Deck Database</h2>
+            <p>
+              An exhaustive collection of longboard decks made by companies
+              all around the world. Each deck is presented with a variety of
+              information from deck specs to videos.
+            </p>
+            <div className={deckClass}>
+              <DeckThumbnail deck={this.state.currentDeck} show={this.state.showDeck} />
+            </div>
           </article>
         </section>
-      </div>
-    );
+      </div>;
   }
 }
 

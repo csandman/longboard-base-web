@@ -1,5 +1,12 @@
 $primary-color: #218acc;
 
+@mixin transition($duration) {
+  -webkit-transition: $duration;
+  -moz-transition: $duration;
+  -o-transition: $duration;
+  transition: $duration;
+}
+
 #home {
   width: 100%;
 
@@ -12,7 +19,6 @@ $primary-color: #218acc;
     justify-content: center;
 
     .atf-center {
-
       h1 {
         font-size: 6rem;
         color: white;
@@ -32,42 +38,44 @@ $primary-color: #218acc;
 
   .deck-database {
     height: 40rem;
-    display: flex;
+    display: grid;
+    grid-template-areas:
+      "title deck"
+      "text deck";
+    column-gap: 4rem;
+    padding: 0 4rem;
     justify-content: center;
-    align-items: center;
     color: $primary-color;
     font-family: Poppins, "sans-serif";
     width: 100%;
     max-width: 1280px;
-    margin: 0 auto;
+    margin: 2rem auto;
 
-    .left,
-    .right {
-      display: flex;
-      align-items: center;
-      padding: 3rem;
-    }
-
-    .left {
-      flex-grow: 65%;
-      justify-content: center;
-    }
-
-    .right {
-      justify-content: left;
-      flex-basis: 35%;
-      padding-left: 0;
-    }
-  }
-
-  .text-content {
     h2 {
       font-size: 4rem;
+      grid-area: title;
+      align-self: flex-end;
+      margin: 1rem 0;
     }
 
     p {
       font-size: 1.8rem;
       line-height: 2.5rem;
+      grid-area: text;
+      align-self: flex-start;
+    }
+
+    .deck {
+      grid-area: deck;
+      align-self: center;
+      opacity: 0;
+      visibility: hidden;
+      @include transition(0.7s);
+
+      &.show {
+        opacity: 1;
+        visibility: visible;
+      }
     }
   }
 }
@@ -87,10 +95,23 @@ $primary-color: #218acc;
         }
       }
     }
+
+    .deck-database {
+      height: 26rem;
+
+      h2 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.4rem;
+        line-height: 2rem;
+      }
+    }
   }
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   #home {
     .above-the-fold {
       height: 25rem;
@@ -103,6 +124,27 @@ $primary-color: #218acc;
         article {
           font-size: 1rem;
         }
+      }
+    }
+    .deck-database {
+      grid-template-areas:
+        "title title"
+        "text deck";
+      padding: 0 1rem;
+      column-gap: 1.5rem;
+      grid-template-rows: min-content;
+      height: auto;
+      margin: 0.5rem auto;
+
+      h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        align-self: center;
       }
     }
   }
