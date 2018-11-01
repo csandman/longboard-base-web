@@ -154,19 +154,24 @@ $primary-color: #218acc;
           text-align: left;
           justify-content: left;
           border: 0;
-          transition: .3s;
+          transition: 0.3s;
 
           &:hover {
-            background-color: #1B6799;
+            background-color: #1b6799;
           }
 
           .menu-item {
             font-size: 1.5rem;
             border-bottom: none;
             width: 100%;
+            font-family: sans-serif;
+            font-weight: lighter;
+
+            &:link,
+            &:visited {
+              color: #fff;
+            }
           }
-
-
         }
       }
     }
