@@ -6,14 +6,23 @@ import "./NavBar.scss";
 const classNames = require("classnames");
 
 const NavBar = props => {
+  const preventPropagation = e => {
+    e.stopPropagation();
+  };
+
+  const sidebarClass = classNames({
+    "fullscreen-menu": true,
+    open: props.menuOpen
+  });
+
   const searchClass = classNames({
     "search-bar": true,
     open: props.searchOpen
   });
 
   return (
-    <nav id="nav-bar" className="fixed">
-      <div className="container">
+    <nav id="nav-bar">
+      <div className="container fixed">
         <ul className="left">
           <li className="title-button">
             <Link to="/" className="link menu-item">
@@ -63,12 +72,13 @@ const NavBar = props => {
               Longboard Base
             </Link>
           </li>
-          <li className="menu-icon">
-            <FaBars size={20} />
-          </li>
           <li className="search-icon" onClick={props.openSearch}>
             <FaSearch size={20} />
           </li>
+          <li className="menu-icon" onClick={props.toggleMenu}>
+            <FaBars size={20} />
+          </li>
+
           <li className={searchClass}>
             <input
               type="text"
@@ -83,6 +93,49 @@ const NavBar = props => {
             </div>
           </li>
         </ul>
+        <div className={sidebarClass} onClick={props.toggleMenu}>
+          <ul onClick={preventPropagation}>
+            <div className="close-icon" onClick={props.toggleMenu}>
+              <MdClose size={30} />
+            </div>
+            <li>
+              <Link
+                to="/search"
+                className="menu-item"
+                onClick={props.toggleMenu}
+              >
+                Advanced Search
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/decks"
+                className="menu-item"
+                onClick={props.toggleMenu}
+              >
+                Deck Database
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/add-deck"
+                className="menu-item"
+                onClick={props.toggleMenu}
+              >
+                Add a Board
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/guides"
+                className="menu-item"
+                onClick={props.toggleMenu}
+              >
+                Guides
+              </Link>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
   );

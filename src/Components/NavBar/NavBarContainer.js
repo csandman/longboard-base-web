@@ -11,11 +11,13 @@ class NavBarContainer extends Component {
 
     this.state = {
       searchOpen: false,
+      menuOpen: false,
       searchTerm: ""
     };
 
     this.openSearch = this.openSearch.bind(this);
     this.closeSearch = this.closeSearch.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
     this.handleSearchTermChange = this.handleSearchTermChange.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
@@ -32,6 +34,15 @@ class NavBarContainer extends Component {
       searchOpen: false
     });
   }
+
+  toggleMenu() {
+    console.log('toggleMenu')
+    this.setState(prevState => ({
+      menuOpen: !prevState.menuOpen
+    }));
+    console.log(this.state.menuOpen)
+  }
+
 
   handleSearchTermChange(e) {
     console.log('handle search term change');
@@ -65,6 +76,8 @@ class NavBarContainer extends Component {
         handleKeyPress={this.handleKeyPress}
         searchTerm={this.state.searchTerm}
         searchOpen={this.state.searchOpen}
+        toggleMenu={this.toggleMenu}
+        menuOpen={this.state.menuOpen}
       />
     );
   }
