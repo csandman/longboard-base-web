@@ -118,7 +118,7 @@ const NavBar = props => {
             </li>
             <li>
               <Link
-                to="/add-deck"
+                to="/add"
                 className="menu-item"
                 onClick={props.toggleMenu}
               >

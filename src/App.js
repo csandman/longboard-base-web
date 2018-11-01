@@ -5,6 +5,8 @@ import NavBarContainer from './Components/NavBar/NavBarContainer';
 import Home from './Components/Home/Home';
 import DeckDatabase from './Components/DeckDatabase/DeckDatabase';
 import DeckSearch from './Components/DeckSearch/DeckSearch';
+import AddPage from './Components/AddPage/AddPage';
+import GuidePage from './Components/GuidePage/GuidePage';
 import store from './store';
 import './App.scss';
 
@@ -18,18 +20,18 @@ import './App.scss';
 
 class App extends Component {
   render() {
-    return (
-      <Provider store={store}>
+    return <Provider store={store}>
         <div className="App">
           <NavBarContainer />
           <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route path='/decks' component={DeckDatabase} />
-            <Route path='/search' component={DeckSearch} />
+            <Route exact path="/" component={Home} />
+            <Route path="/decks" component={DeckDatabase} />
+            <Route path="/search" component={DeckSearch} />
+            <Route path="/guides" component={GuidePage} />
+            <Route path="/add" component={AddPage} />
           </Switch>
         </div>
-      </Provider>
-    );
+      </Provider>;
   }
 }
 
