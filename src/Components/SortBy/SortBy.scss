@@ -1,47 +1,62 @@
 #sort-by {
   display: flex;
-  margin: 3rem 6rem 1rem 6rem;
-  justify-content: space-between;
+  padding: 1.5rem 6rem;
+  border-bottom: 1px solid #ddd;
+  justify-content: space-around;
 
-  .start {
-  }
-
-  .end {
+  .option {
+    flex: 0;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 3rem;
+    color: #999;
     display: flex;
+    align-items: center;
+    padding: 0.5rem;
+
+    .title {
+      margin-right: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .icon {
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s;
+      font-size: 20px;
+    }
+
+    &.selected {
+      color: #333;
+
+      .icon {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      &.desc {
+        .icon {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #sort-by {
+    padding: 1rem;
 
     .option {
-      flex: 0;
-      text-align: center;
-      cursor: pointer;
-      margin-left: 3rem;
-      color: #999;
-      display: flex;
-      align-items: center;
-      padding: 0.5rem;
+      margin-left: .5rem;
 
       .title {
-        margin-right: 1rem;
+        font-size: .8rem;
+        margin-right: .5rem;
       }
 
       .icon {
-        visibility: hidden;
-        opacity: 0;
-        transition: .3s;
-      }
-
-      &.selected {
-        color: #333;
-
-        .icon {
-          visibility: visible;
-          opacity: 1;
-        }
-
-        &.desc {
-          .icon {
-            transform: rotate(180deg);
-          }
-        }
+        font-size: 12px;
       }
     }
   }

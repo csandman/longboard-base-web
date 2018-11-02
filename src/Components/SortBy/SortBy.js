@@ -74,40 +74,33 @@ class SortBy extends Component {
 
     return (
       <div id="sort-by">
-        <div className="start">SORT BY</div>
-        <div className="end">
-          <div
-            className={nameClasses}
-            name="deckName"
-            onClick={this.selectOption}
-          >
-            <div className="title">Name</div>
-            <FaAngleUp className="icon" />
-          </div>
-          <div
-            className={brandClasses}
-            name="brand"
-            onClick={this.selectOption}
-          >
-            <div className="title">Brand</div>
-            <FaAngleUp className="icon" />
-          </div>
-          <div
-            className={lengthClasses}
-            name="specs.length"
-            onClick={this.selectOption}
-          >
-            <div className="title">Length</div>
-            <FaAngleUp className="icon" />
-          </div>
-          <div
-            className={widthClasses}
-            name="specs.width"
-            onClick={this.selectOption}
-          >
-            <div className="title">Width</div>
-            <FaAngleUp className="icon" />
-          </div>
+        <div
+          className={nameClasses}
+          name="deckName"
+          onClick={this.selectOption}
+        >
+          <div className="title">Name</div>
+          <FaAngleUp className="icon" />
+        </div>
+        <div className={brandClasses} name="brand" onClick={this.selectOption}>
+          <div className="title">Brand</div>
+          <FaAngleUp className="icon" />
+        </div>
+        <div
+          className={lengthClasses}
+          name="specs.length"
+          onClick={this.selectOption}
+        >
+          <div className="title">Length</div>
+          <FaAngleUp className="icon" />
+        </div>
+        <div
+          className={widthClasses}
+          name="specs.width"
+          onClick={this.selectOption}
+        >
+          <div className="title">Width</div>
+          <FaAngleUp className="icon" />
         </div>
       </div>
     );
