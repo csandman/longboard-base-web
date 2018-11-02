@@ -36,18 +36,13 @@ class NavBarContainer extends Component {
   }
 
   toggleMenu() {
-    console.log('toggleMenu')
     this.setState(prevState => ({
       menuOpen: !prevState.menuOpen
     }));
-    console.log(this.state.menuOpen)
   }
 
 
   handleSearchTermChange(e) {
-    console.log('handle search term change');
-    
-    console.log(this.props.location.pathname);
     this.setState({ searchTerm: e.target.value });
     if (this.props.location.pathname === "/search/results")
       if (e.target.value === "") {
@@ -55,12 +50,9 @@ class NavBarContainer extends Component {
       } else {
         this.props.searchDecks(e.target.value);
       }
-
-    console.log(e.target.value);
   }
 
   handleKeyPress(e) {
-    console.log('key press')
     if (e.key === "Enter") {
       this.props.setSearchTerm(this.state.searchTerm);
       this.props.history.push("/search/results");

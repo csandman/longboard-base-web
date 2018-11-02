@@ -58,10 +58,11 @@ $secondary-color: #d9e6ff;
     border-radius: 3px;
     padding: 3rem;
     background-color: $secondary-color;
-    width: auto;
     text-align: center;
     min-width: 193px;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 25rem;
+    width: 100%;
   }
 
   .video-container {
@@ -120,6 +121,17 @@ $secondary-color: #d9e6ff;
       .title {
         padding: 0;
         text-align: center;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #deck-page {
+    .deck-page-grid {
+      .title {
+        font-size: 1.5rem;
       }
     }
   }

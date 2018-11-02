@@ -7,7 +7,7 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case SET_SEARCH_TERM:
-      console.log(action.payload);
+      console.log('set search reducer',action.payload);
       return {
         ...state,
         searchTerm: action.payload

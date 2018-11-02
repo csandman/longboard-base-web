@@ -11,7 +11,6 @@ class DeckPage extends Component {
   }
 
   render() {
-    console.log(this.props.decksLoading);
     const deck = this.props.deck;
 
     let brand = "";

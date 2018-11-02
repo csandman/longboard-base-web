@@ -115,6 +115,8 @@ $primary-color: #218acc;
   #home {
     .above-the-fold {
       height: 25rem;
+      padding: 0 2.5rem;
+      column-gap: 2.5rem;
 
       .atf-center {
         h1 {

@@ -9,3 +9,6 @@ export const SEARCH_DECKS = 'SEARCH_DECKS';
 // Search Term Action Types
 export const GET_SEARCH_TERM = 'GET_SEARCH_TERM';
 export const SET_SEARCH_TERM = 'SET_SEARCH_TERM';
+
+// Sort By Action Types
+export const SET_SORT_OPTIONS = 'SET_SORT_OPTIONS';

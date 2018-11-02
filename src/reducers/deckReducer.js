@@ -4,8 +4,10 @@ import {
   DELETE_DECK,
   DECKS_LOADING,
   GET_DECK,
-  SEARCH_DECKS
+  SEARCH_DECKS,
+  SET_SORT_OPTIONS
 } from "../actions/types";
+import _ from "lodash";
 
 const initialState = {
   decks: [],
@@ -51,6 +53,17 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: true
+      };
+    case SET_SORT_OPTIONS:
+      const sortedDecks = _.orderBy(
+        state.decks,
+        [action.payload.selection, "deckName"],
+        [action.payload.order, action.payload.order]
+      );
+      console.log(sortedDecks);
+      return {
+        ...state,
+        decks: sortedDecks
       };
     default:
       return state;

@@ -5,7 +5,8 @@ import {
   DELETE_DECK,
   DECKS_LOADING,
   GET_DECK,
-  SEARCH_DECKS
+  SEARCH_DECKS,
+  SET_SORT_OPTIONS
 } from "./types";
 
 export const searchDecks = searchTerm => dispatch => {
@@ -55,6 +56,15 @@ export const deleteDeck = id => dispatch => {
     })
   );
 };
+
+export const setSortOptions = sortOptions => dispatch => {
+  console.log('deck actions set sort options')
+  console.log(sortOptions);
+  dispatch ({
+    type: SET_SORT_OPTIONS,
+    payload: sortOptions
+  })
+}
 
 export const setDecksLoading = () => {
   return {
